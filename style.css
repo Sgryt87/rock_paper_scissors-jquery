@@ -1,0 +1,22 @@
+body {
+	width: 960px;
+	background: black;
+}
+
+.img {
+	width: 100px;
+}
+
+.imgHover {
+	width: 120px;
+}
+
+.result {
+	color: white;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.result {
+	margin-top: 100px;
+}

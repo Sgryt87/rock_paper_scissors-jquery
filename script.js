@@ -1,47 +1,73 @@
 $(document).ready(function() {
 
-$('.result').html(compare);
-var me = prompt('Please choose: Rock, Paper, Scissors');
+$('.img').hover(function() {
+
+  $(this).addClass('imgHover');
+  }, function() {
+
+    $(this).removeClass('imgHover');
+  });
+
+
+$('#rock').on('click', function() {
+  var game = compare('rock', compRPS())
+  $('.result').html(game);
+});
+
+$('#paper').on('click', function() {
+  var game = compare('paper', compRPS())
+  $('.result').html(game);
+});
+
+$('#scissors').on('click', function() {
+  var game = compare('scissors', compRPS())
+  $('.result').html(game);
+});
+
+
+//var me = prompt('Please choose: Rock, Paper, Scissors');
 
   //my random number
-var compare = function(me, opponent) {
-//  var me = prompt('Please choose: Rock, Paper, Scissors');
+var compare = function(me, computer) {
+
     if (me === 'rock') {
-        if(opponent === 'rock') {
-          return 'Tie';
-        } else if (opponent = 'paper') {
+        if(computer === 'rock') {
+          return 'Draw';
+        } else if (computer === 'paper') {
           return 'I lost! The paper wraps the rock!';
-        } else if (opponent = 'scissors') {
+        } else if (computer === 'scissors') {
           return 'I won! The rock crushes scissors';
         }
       }
 
     else if (me === 'paper') {
-        if(opponent === 'rock') {
+        if(computer === 'rock') {
           return 'I won! The paper wraps the rock!';
-        } else if (opponent = 'paper') {
-          return 'Tie';
-        } else if (opponent = 'scissors') {
+        } else if (computer === 'paper') {
+          return 'Draw';
+        } else if (computer === 'scissors') {
           return 'I lost! Scissors cut the paper';
         }
       }
 
     else if (me === 'scissors') {
-        if(opponent === 'rock') {
+        if(computer === 'rock') {
           return 'I lost! The rock crushes scissors';
-        } else if (opponent = 'paper') {
+        } else if (computer === 'paper') {
           return 'I won! Scissors cut the paper';
-        } else if (opponent = 'scissors') {
-          return 'Tie';
+        } else if (computer === 'scissors') {
+          return 'Draw';
         }
+      } else {
+        return 'Something is wrong here!'
       }
-    }
+   }
 
 
 
-  // computed random number
+  // oppenent's random number
 
-var opponent = function() {
+var compRPS = function() {
   var random = Math.floor(Math.random()*3+1);
 
     if (random === 1) {
